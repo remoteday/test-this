@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pragmaticivan/release-please-action@75430a7
+        id: ghrelease
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: rd-api
+          default-branch: main
